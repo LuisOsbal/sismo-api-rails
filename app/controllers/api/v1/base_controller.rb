@@ -28,7 +28,7 @@ class Api::V1::BaseController < ActionController::Base
   # This method response with a error message.
   def response_error(args = {})
     opts = { code: 420 }.merge(args)
-    opts[:message] ||= "Error")
+    opts[:message] ||= "Error"
 
     render status: opts[:code], json: {
       error: opts[:message]
