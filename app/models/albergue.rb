@@ -1,0 +1,2 @@
+class Albergue < ApplicationRecord
+end
