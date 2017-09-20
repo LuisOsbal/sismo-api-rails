@@ -1,8 +1,10 @@
 class Api::V1::PersonasController < Api::V1::BaseController
   before_action :busca_personas, only: [:index]
   before_action :busca_persona, only: [:update]
+  include Filter
 
   def index
+    @personas = filter(@personas) if params_present?
     response_success personas: @personas
   end
 
@@ -34,6 +36,14 @@ class Api::V1::PersonasController < Api::V1::BaseController
       :estado,
       :notas
     )
+  end
+
+  def filtering_params
+    params.slice(:nombre, :sexo, :edad, :estado)
+  end
+
+  def params_present?
+    filtering_params.values.select(&:present?).count.positive?
   end
 
   def busca_personas
