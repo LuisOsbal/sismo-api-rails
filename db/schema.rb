@@ -15,10 +15,21 @@ ActiveRecord::Schema.define(version: 20170920054556) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+
   create_table "albergues", force: :cascade do |t|
     t.integer  "tipo"
     t.text     "direccion"
     t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "edificios", force: :cascade do |t|
+    t.string   "direccion"
+    t.string   "colonia"
+    t.string   "estado"
+    t.string   "link"
+    t.text     "notas"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,5 +43,4 @@ ActiveRecord::Schema.define(version: 20170920054556) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 end

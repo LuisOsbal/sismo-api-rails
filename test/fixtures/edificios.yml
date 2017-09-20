@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  direccion: MyString
+  colonia: MyString
+  estado: MyString
+  link: MyString
+  notas: MyText
+
+two:
+  direccion: MyString
+  colonia: MyString
+  estado: MyString
+  link: MyString
+  notas: MyText
