@@ -1,5 +1,6 @@
 class Api::V1::PersonasController < Api::V1::BaseController
   before_action :busca_personas, only: [:index]
+  before_action :busca_persona, only: [:update]
 
   def index
     response_success personas: @personas
@@ -12,6 +13,14 @@ class Api::V1::PersonasController < Api::V1::BaseController
       response_success persona: persona
     else
       response_error message: persona.errors.full_messages
+    end
+  end
+
+  def update
+    if @persona.update(persona_params)
+      response_success persona: @persona
+    else
+      response_error message: @persona.errors.full_messages
     end
   end
 
@@ -29,5 +38,9 @@ class Api::V1::PersonasController < Api::V1::BaseController
 
   def busca_personas
     @personas = Persona.all
+  end
+
+  def busca_persona
+    @persona = Persona.find(params[:id])
   end
 end
