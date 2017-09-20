@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # This part generates the routes that we'll use for the API
+  namespace :api, defaults: { format: "json" } do
+    namespace :v1 do
+    	resources :edificios
+    end
+	end
 end

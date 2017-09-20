@@ -38,8 +38,22 @@ gem 'jbuilder', '~> 2.5'
 gem "pg"
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Call 'byebug' anywhere in the code to stop execution and get a
+  # debugger console
+  gem 'awesome_print', require: 'ap'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'bullet', group: 'development'
   gem 'byebug', platform: :mri
+  gem 'capybara'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'haml', '~> 4.0', '>= 4.0.7'
+  gem 'irbtools', require: 'irbtools/binding'
+  gem 'meta_request'
+  gem 'peek'
+  gem 'pry-rails', group: :development
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do
