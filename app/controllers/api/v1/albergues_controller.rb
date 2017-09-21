@@ -31,7 +31,9 @@ class Api::V1::AlberguesController < Api::V1::BaseController
   def albergue_params
     params.require(:albergues).permit(
       :nombre,
-      :direccion
+      :direccion,
+      :espacios,
+      :necesidades
     )
   end
 
