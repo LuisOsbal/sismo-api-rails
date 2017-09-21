@@ -5,7 +5,7 @@ class Api::V1::PersonasController < Api::V1::BaseController
 
   def index
     @personas = filter(@personas) if params_present?
-    response_success personas: @personas.order(:name)
+    response_success personas: @personas.order(:nombre)
   end
 
   def create
