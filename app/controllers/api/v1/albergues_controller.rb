@@ -1,12 +1,10 @@
 class Api::V1::AlberguesController < Api::V1::BaseController
   before_action :busca_albergues, only: [:index]
-  before_action :busca_albergue, only: [:update]
-
+  before_action :busca_albergue, except: [:index, :create]
 
   def index
     response_success albergues: @albergues
   end
-
 
   def create
     albergue = Albergue.new(albergue_params)
@@ -24,6 +22,11 @@ class Api::V1::AlberguesController < Api::V1::BaseController
     else
       response_error message: @albergue.errors.full_messages
     end
+  end
+
+  def destroy
+    @albergue.destroy
+    response_success
   end
 
   private
